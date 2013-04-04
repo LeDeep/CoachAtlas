@@ -7,6 +7,7 @@ gem 'thin'
 
 gem 'pg'
 gem 'bootstrap-sass'
+gem "paperclip", "~> 3.0"
 
 
 # Gems used only for assets and not required
