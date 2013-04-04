@@ -35,4 +35,11 @@ class ProfilesController < ApplicationController
       flash[:alert] = "Invalid input."
     end
   end
+
+  def destroy
+    @profile = Profile.find(params[:id])
+    @profile.destroy
+    flash[:notice] = "Your profile was successfully deleted."
+    redirect_to profiles_path
+  end
 end
