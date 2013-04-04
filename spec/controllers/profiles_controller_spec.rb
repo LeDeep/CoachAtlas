@@ -48,6 +48,38 @@ describe ProfilesController do
      it {should render_template :show}
   end
 
+  context 'GET edit' do
+    let(:profile) {FactoryGirl.create :profile}
+    before {get :edit, :id => profile.id}
 
+    it {should render_template :edit}
+  end
 
+  context 'PUT update' do
+    let(:profile) {FactoryGirl.create :profile}
+
+    context 'with valid parameters' do
+      let(:valid_attributes) {{:first_name => 'Peter', :last_name => 'Lowry', :gender => 'tbd', :sport => 'futbol', :location => 'Sacramento, CA', :contact_email => 'pete@coachatlas.com', :bio => 'i coach soccer', :user_id => user.id}}
+      let(:valid_parameters) {{:id => profile.id, :profile => valid_attributes}}
+
+      before {put :update, valid_parameters}
+
+      it 'updates the profile' do
+        Profile.find(profile.id).contact_email.should eq valid_attributes[:contact_email]
+      end
+
+      it {should redirect_to profiles_path}
+      it {should set_the_flash[:notice]}
+    end
+
+    context 'with invalid parameters' do
+      let(:invalid_attributes) {{:contact_email => ''}}
+      let(:invalid_parameters) {{:id => profile.id, :profile => invalid_attributes}}
+
+      before {put :update, invalid_parameters}
+
+      it {should render_template :edit}
+      it {should set_the_flash[:alert]}
+    end
+  end
 end

@@ -19,7 +19,20 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find(params[:id])
-
   end
 
+  def edit
+    @profile = Profile.find(params[:id])
+  end
+
+  def update
+    @profile = Profile.find(params[:id])
+    if @profile.update_attributes(params[:profile])
+      flash[:notice] = "Your profile was successsfully updated."
+      redirect_to profiles_path
+    else
+      render :edit
+      flash[:alert] = "Invalid input."
+    end
+  end
 end
