@@ -1,3 +1,4 @@
-input.btn {
+input[type="submit"].btn {
   display: block;
+  margin-top: 20px;
 }

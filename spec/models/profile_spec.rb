@@ -25,7 +25,6 @@ describe Profile do
   end
 
   context 'asscociations' do
-    it 'is pending'
-    # it {should belong_to :user}
+    it {should belong_to :user}
   end
 end

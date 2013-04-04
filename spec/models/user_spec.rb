@@ -11,4 +11,8 @@ describe User do
     it {should allow_mass_assignment_of :password}
     it {should allow_mass_assignment_of :password_confirmation}
   end
+
+  context 'associations' do 
+    it {should have_one :profile}
+  end
 end

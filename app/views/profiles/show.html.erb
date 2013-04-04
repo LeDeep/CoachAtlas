@@ -1,0 +1,9 @@
+<% provide :title, "#{@profile.first_name} #{@profile.last_name}" %>
+
+<h1><%= yield :title %></h1>
+
+<table class="table">
+  <tr><td>Sport: </td><td><%= @profile.sport %></td></tr>
+  <tr><td>Location: </td><td><%= @profile.location %></td></tr>
+  <tr><td>Bio: </td><td><%= @profile.bio %></td></tr>
+</table>

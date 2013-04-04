@@ -1,7 +1,7 @@
 Coachatlas::Application.routes.draw do
-<<<<<<< HEAD
+
   resources :profiles
-=======
+
 
   get 'login', to: 'sessions#new', as: 'login'
   delete 'logout', to: 'sessions#destroy', as: 'logout'
@@ -10,11 +10,9 @@ Coachatlas::Application.routes.draw do
   resources :users
   get 'signup', to: 'users#new', as: 'signup'
 
-  root to: 'profiles#index'
+  # root to: 'profiles#index'
     
-  
-  
->>>>>>> deb1d97fb8d8b6a4ffa9fed9f383aa083f76d487
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -64,7 +62,7 @@ Coachatlas::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
