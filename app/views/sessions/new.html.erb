@@ -1,11 +1,8 @@
-
-<div class="container">
+<%= flash[:notice] %>
+<%= flash[:alert] %>
 
   <% provide :title, "Log In" %>
 
   <h3><%= yield :title %></h3>
 
-
   <%= render 'form' %>
-
-</div>

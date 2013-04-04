@@ -3,8 +3,6 @@ class User < ActiveRecord::Base
 
   has_one :profile
 
-  validates :email, :presence => true
-
   attr_accessible :email, :password, :password_confirmation
 
   validates_uniqueness_of :email
