@@ -11,7 +11,7 @@ describe Profile do
     it {should validate_presence_of :contact_email}
     it {should validate_presence_of :bio}
     it {should validate_presence_of :user_id}
-  end
+    end
 
   context 'accessibility' do 
     it {should allow_mass_assignment_of :first_name}
@@ -22,6 +22,7 @@ describe Profile do
     it {should allow_mass_assignment_of :contact_email}
     it {should allow_mass_assignment_of :bio}
     it {should allow_mass_assignment_of :user_id}
+    it {should allow_mass_assignment_of :picture}
   end
 
   context 'asscociations' do
