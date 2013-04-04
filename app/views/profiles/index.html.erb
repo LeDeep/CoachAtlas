@@ -1,25 +1,26 @@
-<% provide :title, "Coach Atlas" %>
+<div class="container">
+  <% provide :title, "Coach Atlas" %>
 
-<h1><%= yield :title %></h1>
+  <h1><%= yield :title %></h1>
 
-<h2>Waiting for Peter's light bulb to go off...</h2>
+  <h2>Waiting for Peter's light bulb to go off...</h2>
 
-<table class="table">
-  <tr>
-    <td>Name</td>    
-    <td>Sport</td>
-    <td>Location</td>
-    <td>Bio</td> 
-    
-  </tr>
-  <% @profiles.each do |profile| %>
- 
+  <table class="table">
     <tr>
-      <td><%= link_to "#{profile.first_name} #{profile.last_name}", profile_path(profile.id) %></td>
-      <td><%= profile.sport %></td>
-      <td><%= profile.location %></td>
-      <td><%= profile.bio[0..50] %></td>
-   </tr>
-  <% end %>
-</table>
-
+      <td>Name</td>    
+      <td>Sport</td>
+      <td>Location</td>
+      <td>Bio</td> 
+      
+    </tr>
+    <% @profiles.each do |profile| %>
+   
+      <tr>
+        <td><%= link_to "#{profile.first_name} #{profile.last_name}", profile_path(profile.id) %></td>
+        <td><%= profile.sport %></td>
+        <td><%= profile.location %></td>
+        <td><%= profile.bio[0..50] %></td>
+     </tr>
+    <% end %>
+  </table>
+</div>

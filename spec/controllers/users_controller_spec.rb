@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe UsersController do
   context 'routing' do
-    it {should route(:get, '/users/new').to :action => :new}    
+    it {should route(:get, '/signup').to :action => :new}    
     it {should route(:post, '/users').to :action => :create}
   end
 
@@ -26,5 +26,17 @@ describe UsersController do
         it {should set_the_flash[:notice]}
       end
     end 
+
+    context 'with invalid parameters' do 
+      let(:invalid_attributes) {{:email => "", :password => "abc1234", :password_confirmation => 'abc1234'}}
+      let(:invalid_parameters) {{:user => invalid_attributes}}
+
+      context 'before create' do 
+        before {post :create, invalid_parameters}
+        it {should render_template :new}
+        it {should set_the_flash[:alert]}
+      end
+    end
+
   end    
 end

@@ -11,7 +11,8 @@ class UsersController < ApplicationController
       flash[:notice] = "Your account was successfully created. You are signed in!"
       redirect_to new_user_path
     else
-      #render :new
+      flash[:alert] = "Please enter a valid email and password."
+      render :new
     end
   end
 end
