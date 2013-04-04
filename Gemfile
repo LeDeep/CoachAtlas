@@ -8,6 +8,9 @@ gem 'thin'
 gem 'pg'
 gem 'bootstrap-sass'
 gem "paperclip", "~> 3.0"
+gem 'omniauth-facebook', '1.4.1'
+gem "omniauth", "~> 1.1.1"
+gem "foreman"
 
 
 # Gems used only for assets and not required
