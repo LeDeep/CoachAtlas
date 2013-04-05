@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :status
 
-  validates_uniqueness_of :email, :allow_blank => true
+  # validates_uniqueness_of :email, :allow_blank => true
 
   def self.from_omniauth(auth)
     find_by_provider_and_uid(auth["provider"], auth["uid"]) || create_with_omniauth(auth)
