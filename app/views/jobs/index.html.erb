@@ -1,0 +1,31 @@
+<div class="container">
+  <% provide :title, "Coach Atlas" %>
+
+  <h1><%= yield :title %></h1>
+
+  <table class="table">
+    <tr>
+      <td>Listing</td>    
+      <td>Sport</td>
+      <td>Gender</td>
+      <td>City</td>
+      <td>State</td>
+      <td>Zip Code</td>
+      <td>Description</td> 
+      
+    </tr>
+    <% @jobs.each do |job| %>
+   
+      <tr>
+        <td><%= link_to "#{job.listing_title}", job_path(job.id) %></td>
+        <td><%= job.sport %></td>
+        <td><%= job.gender %></td>
+        <td><%= job.city %></td>
+        <td><%= job.state %></td>
+        <td><%= job.zip_code %></td>
+        <td><%= job.description[0..50] %></td> 
+
+     </tr>
+    <% end %>
+  </table>
+</div>

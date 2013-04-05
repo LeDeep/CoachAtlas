@@ -12,14 +12,13 @@ gem 'omniauth-facebook'
 gem "omniauth-identity"
 gem "foreman"
 gem 'quiet_assets'
-gem 'better_errors'
-gem 'binding_of_caller'
-
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :development do
   gem 'quiet_assets'
+  gem 'better_errors'
+gem 'binding_of_caller'
 end
 
 group :test, :development do 

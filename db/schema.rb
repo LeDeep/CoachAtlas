@@ -67,12 +67,12 @@ ActiveRecord::Schema.define(:version => 20130405174921) do
     t.string   "password_digest"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "status"
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.integer  "status"
   end
 
 end

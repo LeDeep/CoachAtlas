@@ -1,0 +1,32 @@
+<%= form_for @job do |f| %>
+  <% if @job.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% @job.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
+<%= form_for @job, :html => { :multipart => true } do |f| %>
+
+  <%= f.label :listing_title %><br />
+  <%= f.text_field :listing_title %>
+  <%= f.label :sport %><br />
+  <%= f.text_field :sport %>
+  <%= f.label :gender %><br />
+  <%= f.text_field :gender %>
+  <%= f.label :city %><br />
+  <%= f.text_field :city %>
+  <%= f.label :state %><br />
+  <%= f.text_field :state %>
+  <%= f.label :zip_code %><br />
+  <%= f.text_field :zip_code %>
+  <%= f.label :description %><br />
+  <%= f.text_field :description %>
+
+  <%= f.submit :class => 'btn btn-primary' %></div>
+<% end %>

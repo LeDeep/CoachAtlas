@@ -1,0 +1,12 @@
+<% provide :title, "#{@contact_detail.first_name} #{@contact_detail.last_name}" %>
+
+<h1><%= yield :title %></h1>
+
+<table class="table">
+  <tr><td>Phone: </td><td><%= @contact_detail.phone %></td></tr>
+  <tr><td>Email: </td><td><%= @contact_detail.email %></td></tr>
+  <tr><td>Address: </td><td><%= @contact_detail.address %></td></tr>
+  <tr><td>City: </td><td><%= @contact_detail.city %></td></tr>
+  <tr><td>State: </td><td><%= @contact_detail.state %></td></tr>
+  <tr><td>Zip Code: </td><td><%= @contact_detail.zip_code %></td></tr>
+</table>

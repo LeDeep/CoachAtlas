@@ -9,23 +9,31 @@ describe SessionsController do
     end
   end
 
-
-
-  context "POST create" do
+  context 'session authorizations' do 
     before do
       request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
     end
-
+    
     it "sets a session variable to the OmniAuth auth hash" do
       request.env["omniauth.auth"][:uid].should == '1234'
     end
+  end
 
-    context 'with invalid parameters' do
-      let(:user) {FactoryGirl.create(:user)}
+  context "POST create" do
+   #  context 'with valid parameters' do
+   #    it 'should set the session to the user id' do 
+   #      user = FactoryGirl.create(:user)
+   #      post :create, {:email => user.email, :password => user.password}
+   #      should set_session(:user_id).to(user.id)
+   #   end
+   # end
 
-      before {post :create, {:email => user.email, :password => '1sze'}}
-      it {should_not set_session(:user_id)}
-    end
+   #  context 'with invalid parameters' do
+   #    let(:user) {FactoryGirl.create(:user)}
+
+   #    before {post :create, {:email => user.email, :password => '1sze'}}
+   #    it {should_not set_session(:user_id)}
+   #  end
   end
 
   context "DELETE destroy" do

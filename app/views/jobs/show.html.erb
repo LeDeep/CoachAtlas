@@ -1,0 +1,13 @@
+<% provide :title, "First Last" %>
+
+<h1><%= yield :title %></h1>
+
+<table class="table">
+  <tr><td>Listing Title: </td><td><%= @job.listing_title %></td></tr>
+  <tr><td>Sport: </td><td><%= @job.sport %></td></tr>
+  <tr><td>Gender: </td><td><%= @job.gender %></td></tr>
+  <tr><td>City: </td><td><%= @job.city %></td></tr>
+  <tr><td>State: </td><td><%= @job.state %></td></tr>
+  <tr><td>Zip Code: </td><td><%= @job.zip_code %></td></tr>
+  <tr><td>Description: </td><td><%= @job.description %></td></tr>
+</table>

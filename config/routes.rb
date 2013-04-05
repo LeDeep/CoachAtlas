@@ -13,10 +13,11 @@ Coachatlas::Application.routes.draw do
   resources :users
   resources :profiles
   resources :sessions
+  resources :jobs
+  resources :contact_details
   resources :identities
 
   root to: 'profiles#index'
-    
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -20,4 +20,5 @@ describe User do
     it {should have_one :contact_detail}
     it {should have_many :jobs}
   end
+
 end
