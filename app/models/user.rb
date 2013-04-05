@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_secure_password
+  # has_secure_password
 
   has_one :profile
   has_one :contact_detail
@@ -8,17 +8,17 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :status
 
-  validates :email, :allow_blank => true
-  validates_uniqueness_of :email
+  validates_uniqueness_of :email, :allow_blank => true
 
   def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.name = auth.info.name
-      user.oauth_token = auth.credentials.token
-      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.save!
+    find_by_provider_and_uid(auth["provider"], auth["uid"]) || create_with_omniauth(auth)
+  end
+
+  def self.create_with_omniauth(auth)
+    create! do |user|
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      user.name = auth["info"]["name"]
     end
   end
 end

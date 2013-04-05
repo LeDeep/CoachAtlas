@@ -7,8 +7,6 @@ FactoryGirl.define do
     status '1'
   end
 
-  
-
   factory :profile do 
     gender 'male'
     sport 'Basketball'

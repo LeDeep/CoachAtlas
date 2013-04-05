@@ -30,6 +30,11 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    better_errors (0.7.2)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.1)
+      debug_inspector (>= 0.0.1)
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
     bourne (1.4.0)
@@ -49,6 +54,7 @@ GEM
     coffee-script-source (1.6.2)
     columnize (0.3.6)
     daemons (1.1.9)
+    debug_inspector (0.0.2)
     debugger (1.5.0)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -102,6 +108,9 @@ GEM
       rack
     omniauth-facebook (1.4.1)
       omniauth-oauth2 (~> 1.1.0)
+    omniauth-identity (1.1.0)
+      bcrypt-ruby (~> 3.0)
+      omniauth (~> 1.0)
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
@@ -191,13 +200,15 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
+  better_errors
+  binding_of_caller
   bootstrap-sass
   coffee-rails (~> 3.2.1)
   factory_girl_rails
   foreman
   jquery-rails
-  omniauth (~> 1.1.1)
-  omniauth-facebook (= 1.4.1)
+  omniauth-facebook
+  omniauth-identity
   paperclip (~> 3.0)
   pg
   pry

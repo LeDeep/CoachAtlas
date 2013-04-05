@@ -1,15 +1,19 @@
 Coachatlas::Application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
+  # match "/auth/failure", to: "sessions#failure"
+  match "/logout", to: "sessions#destroy", :as => "logout"
   match 'signout', to: 'sessions#destroy', as: 'signout'
   
   get 'signup', to: 'users#new', as: 'signup'
-  get 'login', to: 'sessions#new', as: 'login'
-  delete 'logout', to: 'sessions#destroy', as: 'logout'
+
+  # get 'login', to: 'sessions#new', as: 'login'
+  # delete 'logout', to: 'sessions#destroy', as: 'logout'
 
   resources :users
   resources :profiles
   resources :sessions
+  resources :identities
 
   root to: 'profiles#index'
     

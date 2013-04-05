@@ -9,27 +9,15 @@ describe SessionsController do
     end
   end
 
-  context "POST create" do
 
-    context 'with valid parameters' do
-      it 'should set the session to the user id' do 
-        user = FactoryGirl.create(:user)
-        post :create, {
-                        :provider => 'facebook',
-                        :uid => '1234567',
-                        :info => {
-                          :nickname => 'jbloggs',
-                          :email => 'joe@bloggs.com',
-                          :name => 'Joe Bloggs',
-                          :first_name => 'Joe',
-                          :last_name => 'Bloggs',
-                          :image => 'http://graph.facebook.com/1234567/picture?type=square',
-                          :urls => { :Facebook => 'http://www.facebook.com/jbloggs' },
-                          :location => 'Palo Alto, California',
-                          :verified => true
-                        }
-        should set_session(:user_id).to(user.id)
-      end
+
+  context "POST create" do
+    before do
+      request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+    end
+
+    it "sets a session variable to the OmniAuth auth hash" do
+      request.env["omniauth.auth"][:uid].should == '1234'
     end
 
     context 'with invalid parameters' do

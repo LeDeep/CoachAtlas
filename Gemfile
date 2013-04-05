@@ -8,9 +8,12 @@ gem 'thin'
 gem 'pg'
 gem 'bootstrap-sass'
 gem "paperclip", "~> 3.0"
-gem 'omniauth-facebook', '1.4.1'
-gem "omniauth", "~> 1.1.1"
+gem 'omniauth-facebook'
+gem "omniauth-identity"
 gem "foreman"
+gem 'quiet_assets'
+gem 'better_errors'
+gem 'binding_of_caller'
 
 
 # Gems used only for assets and not required
@@ -21,13 +24,13 @@ end
 
 group :test, :development do 
   gem 'rspec-rails'
+  gem 'pry'
+  gem 'pry-debugger'
 end
 
 group :test do 
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
-  gem 'pry'
-  gem 'pry-debugger'
 end
 
 group :assets do
