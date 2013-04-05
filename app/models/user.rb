@@ -5,15 +5,10 @@ class User < ActiveRecord::Base
   has_one :profile
   has_one :contact_detail
   has_many :jobs
-<<<<<<< HEAD
+
 
   attr_accessible :email, :password, :password_confirmation, :status
 
-=======
-
-  attr_accessible :email, :password, :password_confirmation, :status
-
->>>>>>> add_jobs
   validates :email, :presence => :true
 
   validates_uniqueness_of :email

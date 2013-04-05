@@ -11,20 +11,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 ActiveRecord::Schema.define(:version => 20130404231454) do
 
-
-=======
-ActiveRecord::Schema.define(:version => 20130404230015) do
-
->>>>>>> add_jobs
-=======
-ActiveRecord::Schema.define(:version => 20130404230015) do
-
->>>>>>> add_jobs
   create_table "contact_details", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -72,13 +60,11 @@ ActiveRecord::Schema.define(:version => 20130404230015) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.integer  "status"
-<<<<<<< HEAD
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-=======
->>>>>>> add_jobs
+
   end
 end
