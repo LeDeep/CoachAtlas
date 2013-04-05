@@ -6,6 +6,8 @@ FactoryGirl.define do
     password_confirmation 'abc1234'
   end
 
+  
+
   factory :profile do 
     first_name 'John'
     last_name 'Doe'

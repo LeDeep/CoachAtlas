@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+has_secure_password
+attr_accessible :email, :password, :password_confirmation
+has_one :profile
+validates :email, :uniqueness => true
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider

@@ -22,7 +22,7 @@ describe UsersController do
       end
       context 'before create' do 
         before {post :create, valid_parameters}
-        it {should redirect_to new_user_path}
+        it {should redirect_to profiles_path}
         it {should set_the_flash[:notice]}
       end
     end 
@@ -34,7 +34,6 @@ describe UsersController do
       context 'before create' do 
         before {post :create, invalid_parameters}
         it {should render_template :new}
-        it {should set_the_flash[:alert]}
       end
     end
 
