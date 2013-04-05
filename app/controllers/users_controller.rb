@@ -14,7 +14,6 @@ class UsersController < ApplicationController
       flash[:notice] = "Your account was successfully created. You are signed in!"
       redirect_to profiles_path
     else
-      flash[:alert] = "Invalid input."
       render :new
     end
   end

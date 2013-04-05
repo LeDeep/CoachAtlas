@@ -28,13 +28,12 @@ describe UsersController do
     end 
 
     context 'with invalid parameters' do 
-      let(:invalid_attributes) {{:email => "", :password => "abc1234", :password_confirmation => 'abc1234'}}
+      let(:invalid_attributes) {{:email => "", :password => "abc1234", :password_confirmation => 'abc134'}}
       let(:invalid_parameters) {{:user => invalid_attributes}}
 
       context 'before create' do 
         before {post :create, invalid_parameters}
         it {should render_template :new}
-        it {should set_the_flash[:alert]}
       end
     end
 
