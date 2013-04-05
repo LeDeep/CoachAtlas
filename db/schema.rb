@@ -11,15 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130404180237) do
+ActiveRecord::Schema.define(:version => 20130404230015) do
 
-  create_table "profiles", :force => true do |t|
+  create_table "contact_details", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "jobs", :force => true do |t|
+    t.string   "listing_title"
     t.string   "sport"
     t.string   "gender"
-    t.string   "location"
-    t.string   "contact_email"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.string   "sport"
+    t.string   "gender"
     t.string   "bio"
     t.integer  "user_id"
     t.datetime "created_at",           :null => false
@@ -28,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130404180237) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.string   "working_zip_code"
   end
 
   create_table "users", :force => true do |t|
@@ -35,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20130404180237) do
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "status"
   end
 
 end

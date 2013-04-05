@@ -14,7 +14,7 @@ describe UsersController do
 
   context 'POST create' do 
     context 'with valid parameters' do
-      let(:valid_attributes) {{:email => "plowry@scu.edu", :password => "abc1234", :password_confirmation => 'abc1234'}}
+      let(:valid_attributes) {{:email => "plowry@scu.edu", :status => 10, :password => "abc1234", :password_confirmation => 'abc1234'}}
       let(:valid_parameters) {{:user => valid_attributes}}
 
       it 'creates a new user' do
@@ -22,7 +22,7 @@ describe UsersController do
       end
       context 'before create' do 
         before {post :create, valid_parameters}
-        it {should redirect_to new_user_path}
+        it {should redirect_to profiles_path}
         it {should set_the_flash[:notice]}
       end
     end 
