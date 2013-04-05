@@ -1,8 +1,15 @@
 class User < ActiveRecord::Base
-has_secure_password
-attr_accessible :email, :password, :password_confirmation
-has_one :profile
-validates :email, :uniqueness => true
+
+  has_secure_password
+
+  has_one :profile
+  has_one :contact_detail
+  has_many :jobs
+
+  attr_accessible :email, :password, :password_confirmation, :status
+
+  validates :email, :allow_blank => true
+  validates_uniqueness_of :email
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

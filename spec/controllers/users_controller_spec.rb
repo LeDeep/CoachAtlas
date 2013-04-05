@@ -14,7 +14,7 @@ describe UsersController do
 
   context 'POST create' do 
     context 'with valid parameters' do
-      let(:valid_attributes) {{:email => "plowry@scu.edu", :password => "abc1234", :password_confirmation => 'abc1234'}}
+      let(:valid_attributes) {{:email => "plowry@scu.edu", :status => 10, :password => "abc1234", :password_confirmation => 'abc1234'}}
       let(:valid_parameters) {{:user => valid_attributes}}
 
       it 'creates a new user' do
@@ -28,7 +28,7 @@ describe UsersController do
     end 
 
     context 'with invalid parameters' do 
-      let(:invalid_attributes) {{:email => "", :password => "abc1234", :password_confirmation => 'abc1234'}}
+      let(:invalid_attributes) {{:email => "", :password => "abc1234", :password_confirmation => 'abc134'}}
       let(:invalid_parameters) {{:user => invalid_attributes}}
 
       context 'before create' do 

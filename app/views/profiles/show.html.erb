@@ -1,10 +1,10 @@
-<% provide :title, "#{@profile.first_name} #{@profile.last_name}" %>
+<% provide :title, "First Last" %>
 
 <h1><%= yield :title %></h1>
 
 <table class="table">
   <tr><td>Sport: </td><td><%= @profile.sport %></td></tr>
-  <tr><td>Location: </td><td><%= @profile.location %></td></tr>
+  <tr><td>Working Zip Code: </td><td><%= @profile.working_zip_code %></td></tr>
   <tr><td>Bio: </td><td><%= @profile.bio %></td></tr>
   <%= image_tag @profile.picture.url %>
   <%= image_tag @profile.picture.url(:small) %>
