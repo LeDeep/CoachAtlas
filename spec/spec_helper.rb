@@ -46,4 +46,7 @@ RSpec.configure do |config|
      :credentials => {:token => "testtoken234tsdf"}}
 
   OmniAuth.config.add_mock(:facebook, omniauth_hash)
+
 end
+
+

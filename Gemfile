@@ -12,6 +12,8 @@ gem 'omniauth-facebook'
 gem "omniauth-identity"
 gem "foreman"
 gem 'quiet_assets'
+gem 'binding_of_caller'
+
 
 # Gems used only for assets and not required
 # in production environments by default.

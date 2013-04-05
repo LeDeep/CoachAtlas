@@ -1,10 +1,12 @@
 require 'spec_helper'
 
 describe UsersController do
-  # context 'routing' do
-  #   it {should route(:get, '/signup').to :action => :new}    
-  #   it {should route(:post, '/users').to :action => :create}
-  # end
+
+  context 'routing' do
+    it {should route(:get, '/signup').to :action => :new}    
+    it {should route(:post, '/users').to :action => :create}
+  end
+
 
   # context 'GET new' do
   #   before {get :new}

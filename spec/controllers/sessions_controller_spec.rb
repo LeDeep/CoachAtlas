@@ -19,6 +19,20 @@ describe SessionsController do
     end
   end
 
+
+    context 'with invalid parameters' do
+      before do 
+        request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+      end
+      
+      it 'should fail to find the user' do 
+        request.env["omniauth.auth"][:email].should_not == ''
+      end
+     
+      it {should redirect_to root_url}
+      it {should set_the_flash[:alert]}
+    end
+
   context "POST create" do
    #  context 'with valid parameters' do
    #    it 'should set the session to the user id' do 
@@ -34,10 +48,15 @@ describe SessionsController do
    #    before {post :create, {:email => user.email, :password => '1sze'}}
    #    it {should_not set_session(:user_id)}
    #  end
+>>>>>>> master
   end
+  
+
+
+
+
 
   context "DELETE destroy" do
     it {should_not set_session(:user_id)}
   end
-
 end
