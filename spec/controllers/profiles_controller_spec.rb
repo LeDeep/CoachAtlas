@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe ProfilesController do
- let(:profile) {Profile.create({:first_name => 'Peter', :last_name => 'Lowry', :gender => 'tbd', :sport => 'futbol', :location => 'Sacramento, CA', :contact_email => 'pete@coachatlas.com', :bio => 'i coach soccer', :user_id => 1})}
- let(:user) {User.create({:email => 'whatever@email.com', :password => 'reallgreat231212', :password_confirmation => 'reallgreat231212'})}
+ let(:profile) {Profile.create({:gender => 'tbd', :sport => 'futbol', :working_zip_code => '95811', :bio => 'i coach soccer', :user_id => 1})}
+ let(:user) {User.create({:email => 'whatever@email.com', :status => 1, :password => 'reallgreat231212', :password_confirmation => 'reallgreat231212'})}
 
 
   context 'routes' do
@@ -22,7 +22,7 @@ describe ProfilesController do
   context 'POST create' do 
 
     context 'with valid parameters' do 
-      let(:valid_attributes) {{:first_name => 'Peter', :last_name => 'Lowry', :gender => 'tbd', :sport => 'futbol', :location => 'Sacramento, CA', :contact_email => 'pete@coachatlas.com', :bio => 'i coach soccer', :user_id => 1}}
+      let(:valid_attributes) {{:gender => 'tbd', :sport => 'futbol', :working_zip_code => '95811', :bio => 'i coach soccer', :user_id => 1}}
       let(:valid_parameters) {{:profile => valid_attributes}}
 
       it 'creates a new profile' do
@@ -44,7 +44,7 @@ describe ProfilesController do
 
   context 'GET show' do 
     
-     let(:valid_attributes) {{:first_name => 'Peter', :last_name => 'Lowry', :gender => 'tbd', :sport => 'futbol', :location => 'Sacramento, CA', :contact_email => 'pete@coachatlas.com', :bio => 'i coach soccer', :user_id => user.id}}
+     let(:valid_attributes) {{:gender => 'tbd', :sport => 'futbol', :working_zip_code => '95811', :bio => 'i coach soccer', :user_id => 1}}
      let(:valid_parameters) {{:profile => valid_attributes}}
 
      before {get :show, {:id => profile.id}}
@@ -63,13 +63,13 @@ describe ProfilesController do
     let(:profile) {FactoryGirl.create :profile}
 
     context 'with valid parameters' do
-      let(:valid_attributes) {{:first_name => 'Peter', :last_name => 'Lowry', :gender => 'tbd', :sport => 'futbol', :location => 'Sacramento, CA', :contact_email => 'pete@coachatlas.com', :bio => 'i coach soccer', :user_id => user.id}}
+      let(:valid_attributes) {{:gender => 'tbd', :sport => 'tennis', :working_zip_code => 'Sacramento, CA', :bio => 'i coach soccer', :user_id => 1}}
       let(:valid_parameters) {{:id => profile.id, :profile => valid_attributes}}
 
       before {put :update, valid_parameters}
 
       it 'updates the profile' do
-        Profile.find(profile.id).contact_email.should eq valid_attributes[:contact_email]
+        Profile.find(profile.id).sport.should eq valid_attributes[:sport]
       end
 
       it {should redirect_to profiles_path}
@@ -77,7 +77,7 @@ describe ProfilesController do
     end
 
     context 'with invalid parameters' do
-      let(:invalid_attributes) {{:contact_email => ''}}
+      let(:invalid_attributes) {{:working_zip_code => ''}}
       let(:invalid_parameters) {{:id => profile.id, :profile => invalid_attributes}}
 
       before {put :update, invalid_parameters}

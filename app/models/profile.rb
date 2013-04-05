@@ -1,7 +1,7 @@
 class Profile < ActiveRecord::Base
 
-  validates :first_name, :last_name, :gender, :sport, :location, :contact_email, :bio, :user_id, :presence => true
-  attr_accessible :first_name, :last_name, :gender, :sport, :location, :contact_email, :bio, :picture, :user_id
+  validates :gender, :sport, :working_zip_code, :bio, :user_id, :presence => true
+  attr_accessible :gender, :sport, :working_zip_code, :bio, :picture, :user_id
   validates_attachment_content_type :picture, :content_type => ["image/jpg", "image/png" ]
   validates_attachment_size :picture, :less_than => 3.megabytes
 
