@@ -12,7 +12,7 @@ gem 'omniauth-facebook'
 gem "omniauth-identity"
 gem "foreman"
 gem 'quiet_assets'
-gem 'better_errors'
+
 gem 'binding_of_caller'
 
 
@@ -20,6 +20,7 @@ gem 'binding_of_caller'
 # in production environments by default.
 group :development do
   gem 'quiet_assets'
+  gem 'better_errors'
 end
 
 group :test, :development do 
