@@ -48,7 +48,7 @@ describe SessionsController do
    #    before {post :create, {:email => user.email, :password => '1sze'}}
    #    it {should_not set_session(:user_id)}
    #  end
->>>>>>> master
+
   end
   
 
