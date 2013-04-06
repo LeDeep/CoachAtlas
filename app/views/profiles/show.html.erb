@@ -6,6 +6,7 @@
   <tr><td>Sport: </td><td><%= @profile.sport %></td></tr>
   <tr><td>Working Zip Code: </td><td><%= @profile.working_zip_code %></td></tr>
   <tr><td>Bio: </td><td><%= @profile.bio %></td></tr>
+  <tr><td><%= link_to "Contact" %></td></tr>
   <%= image_tag @profile.picture.url %>
   <%= image_tag @profile.picture.url(:small) %>
   <%= image_tag @profile.picture.url(:thumb) %>

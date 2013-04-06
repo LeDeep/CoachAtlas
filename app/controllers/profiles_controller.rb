@@ -7,7 +7,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(params[:profile])
     if @profile.save
-      redirect_to root_path, notice: "Your profile has been created."
+      redirect_to new_contact_path, notice: "Add your contact information."
     else
       render new_profile_path, alert: "Invalid input."
     end
@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     if @profile.update_attributes(params[:profile])
       flash[:notice] = "Your profile was successsfully updated."
-      redirect_to profiles_path
+      redirect_to profile_path(@profile.id)
     else
       render :edit
       flash[:alert] = "Invalid input."

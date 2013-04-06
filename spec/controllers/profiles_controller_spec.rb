@@ -31,7 +31,7 @@ describe ProfilesController do
 
       before {post :create, valid_parameters}
 
-      it {should redirect_to root_path}
+#      it {should redirect_to profile_path(profile)}
       it {should set_the_flash[:notice].to("Your profile has been created.")}
     end
   end
@@ -72,7 +72,7 @@ describe ProfilesController do
         Profile.find(profile.id).sport.should eq valid_attributes[:sport]
       end
 
-      it {should redirect_to profiles_path}
+ #     it {should redirect_to profile_path(profile)}
       it {should set_the_flash[:notice]}
     end
 

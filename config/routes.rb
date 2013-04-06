@@ -10,6 +10,7 @@ Coachatlas::Application.routes.draw do
   # get 'login', to: 'sessions#new', as: 'login'
   # delete 'logout', to: 'sessions#destroy', as: 'logout'
 
+
   resources :users
   resources :profiles
   resources :sessions
@@ -17,7 +18,7 @@ Coachatlas::Application.routes.draw do
   resources :contact_details
   resources :identities
 
-  root to: 'profiles#index'
+  root to: 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

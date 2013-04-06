@@ -1,0 +1,11 @@
+<div class="container">
+  <% provide :title, "Coach Atlas" %>
+
+  <h1><%= yield :title %></h1>
+  <table>
+    <tr><td><%= link_to "Coach Profiles", profiles_path %></td></tr>
+    <tr><td><%= link_to "Coaching Jobs", jobs_path %></td></tr>
+    <tr><td><%= link_to "Create a Profile", new_profile_path %></td></tr>
+    <tr><td><%= link_to "Create a Job", new_job_path %></td></tr>
+  </table>    
+</div>

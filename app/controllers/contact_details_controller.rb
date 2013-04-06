@@ -5,7 +5,6 @@ class ContactDetailsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @contact_detail = ContactDetail.new(params[:contact_detail])
     if @contact_detail.save
       redirect_to contact_detail_path(@contact_detail), notice: "Your contact information has been created."
@@ -28,7 +27,6 @@ class ContactDetailsController < ApplicationController
     @contact_detail = ContactDetail.find(params[:id])
     if @contact_detail.update_attributes(params[:contact_detail])
       flash[:notice] = "Your contact_detail was successsfully updated."
-      # redirect_to root_path
       redirect_to contact_detail_path(@contact_detail)
     else
       flash[:alert] = "Invalid input."
