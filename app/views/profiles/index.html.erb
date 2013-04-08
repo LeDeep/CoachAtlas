@@ -9,11 +9,6 @@
       <th><%= model_class.human_attribute_name(:sport) %></th>
       <th><%= model_class.human_attribute_name(:gender) %></th>
       <th><%= model_class.human_attribute_name(:bio) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:picture_file_name) %></th>
-      <th><%= model_class.human_attribute_name(:picture_content_type) %></th>
-      <th><%= model_class.human_attribute_name(:picture_file_size) %></th>
-      <th><%= model_class.human_attribute_name(:picture_updated_at) %></th>
       <th><%= model_class.human_attribute_name(:working_zip_code) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -26,11 +21,6 @@
         <td><%= profile.sport %></td>
         <td><%= profile.gender %></td>
         <td><%= profile.bio %></td>
-        <td><%= profile.user_id %></td>
-        <td><%= profile.picture_file_name %></td>
-        <td><%= profile.picture_content_type %></td>
-        <td><%= profile.picture_file_size %></td>
-        <td><%= profile.picture_updated_at %></td>
         <td><%= profile.working_zip_code %></td>
         <td><%=l profile.created_at %></td>
         <td>

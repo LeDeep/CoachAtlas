@@ -33,7 +33,7 @@ describe ProfilesController do
 
       before {post :create, valid_attributes}
 
-      # it {should redirect_to profile_path(profile)}
+      it {should redirect_to profile_path(profile)}
       it {should set_the_flash[:notice].to("Your profile has been created.")}
     end
   end

@@ -5,7 +5,7 @@ class ContactDetailsController < ApplicationController
   end
 
   def create
-    @contact_detail = User.find(params[:user_id]).contact_details.create(params[:contact_detail])
+    @contact_detail = User.find(session[:user_id]).build_contact_detail(params[:contact_detail])
     if @contact_detail.save
       redirect_to contact_detail_path(@contact_detail), notice: "Your contact information has been created."
     else

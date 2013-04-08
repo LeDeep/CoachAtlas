@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = User.find(params[:user_id]).profile.create(params[:profile])
+    @profile = User.find(session[:user_id]).build_profile(params[:profile])
     if @profile.save
       redirect_to new_contact_detail_path
       flash[:notice] = "Your profile has been created."
