@@ -5,7 +5,7 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job = User.find(sessions[:user_id]).jobs.build(params[:job])
+    @job = User.find(session[:user_id]).jobs.build(params[:job])
     if @job.save
       redirect_to jobs_path, notice: "Your job has been created."
     else
@@ -14,7 +14,8 @@ class JobsController < ApplicationController
   end
 
   def index
-    @jobs = Job.sport(params[:search]).zip_code(params[:search])
+    # @jobs = Job.sport(params[:search]).zip_code(params[:search]) #LOOK FOR RAILSCAST for search
+    @jobs = Job.all
   end
 
   def show
