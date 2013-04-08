@@ -3,6 +3,13 @@ FactoryGirl.define do
   factory :user do 
     sequence(:email) { |n| "abc#{n}@gmail.com" }
     status '1'
+
+    factory :user_with_profile do 
+      after(:create) do |user, evaluator|
+        FactoryGirl.create(:profile, user: user)
+      end
+    end
+  
   end
 
   factory :profile do 

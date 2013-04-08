@@ -5,7 +5,7 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job = Job.new(params[:job])
+    @job = User.find(params[:user_id]).jobs .create(params[:job])
     if @job.save
       redirect_to jobs_path, notice: "Your job has been created."
     else

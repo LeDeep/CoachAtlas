@@ -18,6 +18,10 @@ Coachatlas::Application.routes.draw do
   resources :contact_details
   resources :identities
 
+  resources :users do 
+    resources :profiles, :jobs, :contact_details
+  end
+
   root to: 'home#index'
 
   # The priority is based upon order of creation:

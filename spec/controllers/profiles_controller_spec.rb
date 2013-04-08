@@ -22,14 +22,16 @@ describe ProfilesController do
   context 'POST create' do 
 
     context 'with valid parameters' do 
-      let(:valid_attributes) {{:gender => 'tbd', :sport => 'futbol', :working_zip_code => '95811', :bio => 'i coach soccer', :user_id => 1}}
-      let(:valid_parameters) {{:profile => valid_attributes}}
+
+      let(:user) {FactoryGirl.create(:user)}
+      let(:profile) {FactoryGirl.create(:profile)}
+      let(:valid_attributes) {{:user_id => user.id, :profile => {:gender => 'tbd', :sport => 'futbol', :working_zip_code => '95811', :bio => 'i coach soccer', :user_id => 1}}}
 
       it 'creates a new profile' do
-        expect {post :create, valid_parameters}.to change(Profile, :count).by(1)
+        expect {post :create, valid_attributes}.to change(Profile, :count).by(1)
       end
 
-      before {post :create, valid_parameters}
+      before {post :create, valid_attributes}
 
       # it {should redirect_to profile_path(profile)}
       it {should set_the_flash[:notice].to("Your profile has been created.")}
