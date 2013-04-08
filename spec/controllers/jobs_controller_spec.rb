@@ -45,6 +45,10 @@ describe JobsController do
     before {get :index}
 
     it {should render_template :index}
+    
+    before {get :index}
+
+    it {should render_template :index}
   end
 
   context 'GET show' do 
