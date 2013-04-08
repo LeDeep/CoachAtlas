@@ -7,9 +7,11 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(params[:profile])
     if @profile.save
-      redirect_to new_contact_path, notice: "Add your contact information."
+      redirect_to new_contact_detail_path
+      flash[:notice] = "Your profile has been created."
     else
-      render new_profile_path, alert: "Invalid input."
+      render new_profile_path
+      flash[:alert] = "Invalid input."
     end
   end
 

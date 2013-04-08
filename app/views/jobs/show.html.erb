@@ -1,14 +1,35 @@
-<% provide :title, "First Last" %>
+<%- model_class = Job -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<h1><%= yield :title %></h1>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:listing_title) %>:</strong></dt>
+  <dd><%= @job.listing_title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sport) %>:</strong></dt>
+  <dd><%= @job.sport %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:gender) %>:</strong></dt>
+  <dd><%= @job.gender %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @job.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
+  <dd><%= @job.state %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:zip_code) %>:</strong></dt>
+  <dd><%= @job.zip_code %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @job.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @job.user_id %></dd>
+</dl>
 
-<table class="table">
-  <tr><td>Listing Title: </td><td><%= @job.listing_title %></td></tr>
-  <tr><td>Sport: </td><td><%= @job.sport %></td></tr>
-  <tr><td>Gender: </td><td><%= @job.gender %></td></tr>
-  <tr><td>City: </td><td><%= @job.city %></td></tr>
-  <tr><td>State: </td><td><%= @job.state %></td></tr>
-  <tr><td>Zip Code: </td><td><%= @job.zip_code %></td></tr>
-  <tr><td>Description: </td><td><%= @job.description %></td></tr>
-  <tr><td><%= link_to "Contact" %></td></tr>
-</table>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              jobs_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_job_path(@job), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              job_path(@job),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

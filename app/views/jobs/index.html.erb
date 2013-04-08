@@ -1,31 +1,50 @@
-<div class="container">
-  <% provide :title, "Coach Atlas" %>
-
-  <h1><%= yield :title %></h1>
-
-  <table class="table">
+<%- model_class = Job -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
     <tr>
-      <td>Listing</td>    
-      <td>Sport</td>
-      <td>Gender</td>
-      <td>City</td>
-      <td>State</td>
-      <td>Zip Code</td>
-      <td>Description</td> 
-      
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:listing_title) %></th>
+      <th><%= model_class.human_attribute_name(:sport) %></th>
+      <th><%= model_class.human_attribute_name(:gender) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:state) %></th>
+      <th><%= model_class.human_attribute_name(:zip_code) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
+  </thead>
+  <tbody>
     <% @jobs.each do |job| %>
-   
       <tr>
-        <td><%= link_to "#{job.listing_title}", job_path(job.id) %></td>
+        <td><%= link_to job.id, job_path(job) %></td>
+        <td><%= job.listing_title %></td>
         <td><%= job.sport %></td>
         <td><%= job.gender %></td>
         <td><%= job.city %></td>
         <td><%= job.state %></td>
         <td><%= job.zip_code %></td>
-        <td><%= job.description[0..50] %></td> 
-
-     </tr>
+        <td><%= job.description %></td>
+        <td><%= job.user_id %></td>
+        <td><%=l job.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_job_path(job), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      job_path(job),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
     <% end %>
-  </table>
-</div>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_job_path,
+            :class => 'btn btn-primary' %>

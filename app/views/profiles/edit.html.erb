@@ -1,13 +1,5 @@
-
-<%= flash[:notice] %>
-<%= flash[:alert] %>
-
-<% provide :title, "Edit #{profile.first_name} #{profile.last_name}'s Profile" %>
-
-<div class="container">
-
-  <h3><%= yield :title %></h3>
-
-  <%= render 'form' %>
-
+<%- model_class = Profile -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human %></h1>
 </div>
+<%= render :partial => 'form' %>

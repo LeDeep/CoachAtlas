@@ -1,26 +1,52 @@
-<div class="container">
-  <% provide :title, "Coach Atlas" %>
-
-  <h1><%= yield :title %></h1>
-
-  <h2>Waiting for Peter's light bulb to go off...</h2>
-
-  <table class="table">
-    <tr>
-      <td>Name</td>    
-      <td>Sport</td>
-      <td>Zip Code</td>
-      <td>Bio</td> 
-      
-    </tr>
-    <% @profiles.each do |profile| %>
-   
-      <tr>
-        <td><%= link_to "First Last", profile_path(profile.id) %></td>
-        <td><%= profile.sport %></td>
-        <td><%= profile.working_zip_code %></td>
-        <td><%= profile.bio[0..150] %></td>
-     </tr>
-    <% end %>
-  </table>
+<%- model_class = Profile -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:sport) %></th>
+      <th><%= model_class.human_attribute_name(:gender) %></th>
+      <th><%= model_class.human_attribute_name(:bio) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:picture_file_name) %></th>
+      <th><%= model_class.human_attribute_name(:picture_content_type) %></th>
+      <th><%= model_class.human_attribute_name(:picture_file_size) %></th>
+      <th><%= model_class.human_attribute_name(:picture_updated_at) %></th>
+      <th><%= model_class.human_attribute_name(:working_zip_code) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @profiles.each do |profile| %>
+      <tr>
+        <td><%= link_to profile.id, profile_path(profile) %></td>
+        <td><%= profile.sport %></td>
+        <td><%= profile.gender %></td>
+        <td><%= profile.bio %></td>
+        <td><%= profile.user_id %></td>
+        <td><%= profile.picture_file_name %></td>
+        <td><%= profile.picture_content_type %></td>
+        <td><%= profile.picture_file_size %></td>
+        <td><%= profile.picture_updated_at %></td>
+        <td><%= profile.working_zip_code %></td>
+        <td><%=l profile.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_profile_path(profile), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      profile_path(profile),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_profile_path,
+            :class => 'btn btn-primary' %>
