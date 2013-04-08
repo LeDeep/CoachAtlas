@@ -22,6 +22,9 @@ Coachatlas::Application.routes.draw do
     resources :profiles, :jobs, :contact_details
   end
 
+  get "home/howitworks", :as => 'howitworks_page'
+  get "home/aboutus", :as => 'aboutus_page'
+
   root to: 'home#index'
 
   # The priority is based upon order of creation:

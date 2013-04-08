@@ -3,27 +3,15 @@ input[type="submit"].btn {
   margin-top: 20px;
 }
 
+.navbar-static-top .container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container {
+  width: 1200px;
+} /*NOT WORKING*/
+
 @import "bootstrap";
 
 body { padding-top: 60px; }
 
 @import "bootstrap-responsive";
 
-.navbar .brand {
-  color: #FFA500;
-}
-
-.navbar .background { 
-  color: #444;
-} 
-
-.navbar .BackgroundHighlight { 
-  color: #888;
-} 
-.navbar .text { 
-  color: #eee;
-} 
-
-.navbar .LinkColor { 
-  color: #eee;
-} 

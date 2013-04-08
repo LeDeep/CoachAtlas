@@ -19,22 +19,54 @@
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">CoachAtlas</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li><%= link_to "Coach Directory", profiles_path %></li>
-              <li><%= link_to "Coaching Jobs", jobs_path %></li>
-              <li><%= link_to "About Us" %></li>
-              <li><%= link_to "Contact Us" %></li>
+          <%= link_to "CoachAtlas", root_path, class: "brand" %>
+          <div class="nav-collapse collapse" id="main-menu">
+            <ul class="nav pull-left" id="main-menu-left">
+              <ul class="nav">
+                <li><%= link_to "Coach Directory", profiles_path %></li>
+                <li><%= link_to "Coaching Jobs", jobs_path %></li>
+                <li><%= link_to "How It Works", howitworks_page_path %></li>
+                <li><%= link_to "About Us", aboutus_page_path %></li>
+              </ul>
             </ul>
+              <ul class="nav pull-right" id="main-menu-right">
+                <ul class="nav">
+                  <% if current_user %>
+                      Signed in as <strong><%= current_user.name %></strong>!
+                      <%= link_to "Sign out", signout_path, id: "sign_out", class: "btn" %>
+                  <% else %>
+                    <li><%= link_to "Create an Account", new_identity_path %></li>
+                    <li class="dropdown">
+                    <li class="dropdown closed" id"preview-menu">
+                      <a class="dropdown-toggle" data-toggle="dropdown">Sign In With Email<strong class="caret"></strong></a>
+                      <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                        <%= form_tag "/auth/identity/callback" do %>
+                          <div class="field">
+                            <%= label_tag :auth_key, "Email" %> 
+                            <%= text_field_tag :auth_key %>
+                          </div>
+                          <div class="field">
+                            <%= label_tag :password %> 
+                            <%= password_field_tag :password %>
+                          </div>
+                          <div class="actions"><%= submit_tag "Login", class: "btn btn-primary" %></div>
+                        <% end %>
+                      </div>
+                    </li>
+                    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class: "btn" %>
+                  <% end %>
+                </ul>  
+              </ul>
           </div>
         </div>
       </div>
     </div>
+
     <div class="container">
       <% flash.each do |name, msg| %>
         <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
@@ -42,30 +74,7 @@
         </div>
       <% end %>
 
-      <div id="user_nav">
-        <%= link_to "Home", root_url %>
-        <% if current_user %>
-          Signed in as <strong><%= "current_user.name" %></strong>!
-          <%= link_to "Sign out", signout_path, id: "sign_out" %>
-        <% else %>
-
-          <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-          <strong>Or use email</strong>
-          <%= link_to "Create an account", new_identity_path %>
-
-          <%= form_tag "/auth/identity/callback" do %>
-            <div class="field">
-              <%= label_tag :auth_key, "Email" %> 
-              <%= text_field_tag :auth_key %>
-            </div>
-            <div class="field">
-              <%= label_tag :password %> 
-              <%= password_field_tag :password %>
-            </div>
-            <div class="actions"><%= submit_tag "Login" %></div>
-          <% end %>
-        <% end %>
-      </div>
+      
       
       <%= yield %>
     </div>
