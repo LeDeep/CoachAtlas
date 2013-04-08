@@ -4,6 +4,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
+require 'capybara/poltergeist'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -38,7 +39,7 @@ RSpec.configure do |config|
   config.order = "random"
 
   RACK_ENV = ENV['ENVIRONMENT'] ||= 'test'
-  OmniAuth.config.test_mode = true
+  OmniAuth.config.test_mode = false
   omniauth_hash =
     {:provider => "facebook",
      :uid      => "1234",
@@ -47,6 +48,19 @@ RSpec.configure do |config|
      :credentials => {:token => "testtoken234tsdf"}}
 
   OmniAuth.config.add_mock(:facebook, omniauth_hash)
+
+
+class ActiveRecord::Base
+  mattr_accessor :shared_connection
+  @@shared_connection = nil
+
+  def self.connection
+    @@shared_connection || retrieve_connection
+  end
+end
+ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+
+Capybara.javascript_driver = :poltergeist
 
 end
 

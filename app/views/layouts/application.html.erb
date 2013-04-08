@@ -45,7 +45,7 @@
                     <li class="dropdown closed" id"preview-menu">
                       <a class="dropdown-toggle" data-toggle="dropdown">Sign In With Email<strong class="caret"></strong></a>
                       <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-                        <%= form_tag "/auth/identity/callback" do %>
+                        <%= form_tag "/auth/identity/callback", :class => 'sign_in_form' do %>
                           <div class="field">
                             <%= label_tag :auth_key, "Email" %> 
                             <%= text_field_tag :auth_key %>

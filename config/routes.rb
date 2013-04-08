@@ -4,7 +4,7 @@ Coachatlas::Application.routes.draw do
   # match "/auth/failure", to: "sessions#failure"
   match "/logout", to: "sessions#destroy", :as => "logout"
   match 'signout', to: 'sessions#destroy', as: 'signout'
-  match "auth/identity/register", to: "identities#new"
+  # match "auth/identity/register", to: "identities#new"
 
   get 'signup', to: 'users#new', as: 'signup'
 

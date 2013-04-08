@@ -1,3 +1,10 @@
+Welcome to CoachAtlas. 
+
+This is a sports coaching directory for athletes, organizations and coaches to better find and connect with each other.
+
+
+
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
