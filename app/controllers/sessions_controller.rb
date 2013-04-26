@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       redirect_to root_url
       flash[:notice] = "Signed in!"
     else
-      redirect_to new_session_path, 
+      redirect_to root_url
       flash[:alert] = "Email or password is invalid." 
     end
   end
@@ -19,7 +19,6 @@ class SessionsController < ApplicationController
 
   def failure
     redirect_to root_url
-    flash[:alert] = "Authentication failed, please try again."
-
+    flash[:alert] = "Email or password was invalid."
   end
 end

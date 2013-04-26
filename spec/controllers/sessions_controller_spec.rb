@@ -21,9 +21,7 @@ describe SessionsController do
 
 
     context 'with invalid parameters' do
-      before do 
-        request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
-      end
+      
       
       it 'should fail to find the user' do 
         request.env["omniauth.auth"][:email].should_not == ''

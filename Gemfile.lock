@@ -83,14 +83,11 @@ GEM
       railties (>= 3.0.0)
     faraday (0.8.7)
       multipart-post (~> 1.1)
-    faye-websocket (0.4.7)
-      eventmachine (>= 0.12.0)
     ffi (1.6.0)
     foreman (0.62.0)
       thor (>= 0.13.6)
     hashie (1.2.0)
     hike (1.2.1)
-    http_parser.rb (0.5.3)
     httpauth (0.2.0)
     i18n (0.6.1)
     journey (1.0.4)
@@ -138,10 +135,10 @@ GEM
       cocaine (~> 0.5.0)
       mime-types
     pg (0.15.0)
-    poltergeist (1.1.0)
-      capybara (~> 2.0, >= 2.0.1)
-      faye-websocket (~> 0.4, >= 0.4.4)
-      http_parser.rb (~> 0.5.3)
+    pg_search (0.6.2)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
+      arel
     polyglot (0.3.3)
     pry (0.9.12)
       coderay (~> 1.0.5)
@@ -247,7 +244,7 @@ DEPENDENCIES
   omniauth-identity
   paperclip (~> 3.0)
   pg
-  poltergeist
+  pg_search
   pry
   pry-debugger
   quiet_assets

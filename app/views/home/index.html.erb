@@ -1,48 +1,30 @@
 
-  <% provide :title, "Coach Atlas" %>
+<% provide :title, "Coach Atlas" %>
 
     <div class="container">
       <h1>Welcome to CoachAtlas</h1>
       <h4>Search for the perfect sports coach here!</h4>
-         <div class="leftContainer">
-                         
-           <div class="searchBox">
-               
-               
-                       <table class="searchForm">
-                           <tbody><tr>
-                               <th>Sport
-                               </th>
+      <h5>Just enter your sport and zip code</h5>
+      <div class="leftContainer">
+        <div class="searchBox">
+          <table>
+            <tr>
+              <td></td>
+            </tr>  
+          </table>  
 
-                               <th>Zip
-                               </th>
-
-                               <th>
-                               </th>
-                               
-                           </tr>
-                           <tr class="searchFields">
-                               <td>
           
-                            <input type="text" data-wyzac-searchtype="SubjectSearch" data-wyzac-selecteventhandler="doSearch" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
-                               </td>
-                               <td>
-                                   <input type="tel" class="ZipTB" maxlength="5" size="5" value="95628">
-                               </td>
-                               <td>
 
-                                   <div class="searchButtonDiv">
-                                       <a href="/search" class="btn btn-primary">Search</a>
-                                   </div>
-                               </td>
-                           </tr>
-                       </tbody></table>
-                  
-           </div>                        
-       </div>
+          <%= form_tag profiles_path, :class => 'form-horizontal', method: :get do %>
+           <p>
+             <%= text_field_tag :query, params[:query], :placeholder => 'Enter sport ...', :autocomplete => 'on', :type => 'text' %>
+             <%= text_field_tag :query, params[:query], :placeholder => 'Enter zip code ...', :size => '5', :maxlength => '5' %>
 
-
-            
+             <%= submit_tag "Search", name: nil, :class => 'btn btn-primary' %>
+           </p>
+          <% end %>
+        </div>
+      </div>
     </div>
 
       <!-- Example row of columns -->

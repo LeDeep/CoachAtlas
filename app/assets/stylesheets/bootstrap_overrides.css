@@ -9,7 +9,11 @@ input[type="submit"].btn {
   width: 1200px;
 } /*NOT WORKING*/
 
-.navbar .container .brand {
+.navbar .container .img-rounded {
+
+  max-width: 20%;
+
+  border: 0;
 
   } /*insert logo into brand*/
 

@@ -1,16 +1,17 @@
 Coachatlas::Application.routes.draw do
+  get "password_resets/new"
+
   match 'auth/:provider/callback', to: 'sessions#create'
-  match 'auth/failure', to: redirect('/')
-  # match "/auth/failure", to: "sessions#failure"
-  match "/logout", to: "sessions#destroy", :as => "logout"
+  match "/logout", to: "sessions#destroy", as: "logout"
   match 'signout', to: 'sessions#destroy', as: 'signout'
-  # match "auth/identity/register", to: "identities#new"
+
+  match "/auth/failure" => "sessions#failure", as: "invalid"
 
   get 'signup', to: 'users#new', as: 'signup'
 
-  # get 'login', to: 'sessions#new', as: 'login'
-  # delete 'logout', to: 'sessions#destroy', as: 'logout'
-
+  %w[about privacy license howitworks].each do |page|
+    get page, controller: 'info', action: page
+  end
 
   resources :users
   resources :profiles
@@ -18,13 +19,11 @@ Coachatlas::Application.routes.draw do
   resources :jobs
   resources :contact_details
   resources :identities
+  resources :password_resets
 
   resources :users do 
     resources :profiles, :jobs, :contact_details
   end
-
-  get "home/howitworks", :as => 'howitworks_page'
-  get "home/aboutus", :as => 'aboutus_page'
 
   root to: 'home#index'
 

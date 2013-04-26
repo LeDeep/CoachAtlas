@@ -42,9 +42,8 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :user_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.number_field :user_id, :class => 'number_field' %>
+      <%= f.hidden_field :user_id, :user_id => user.id, :class => 'number_field' %>
     </div>
   </div>
 

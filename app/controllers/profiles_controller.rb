@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
   end
 
   def index
-    @profiles = Profile.all
+    @profiles = Profile.text_search(params[:query])
   end
 
   def show

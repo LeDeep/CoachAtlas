@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+profiles = Profile.create(:gender => 'male', :sport => "soccer", :working_zip_code => '95628', :bio "ex-pro and collegiate all-american", :user_id => '1')

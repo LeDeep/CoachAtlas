@@ -11,6 +11,7 @@ gem "paperclip", "~> 3.0"
 gem 'omniauth-facebook'
 gem "omniauth-identity"
 gem "foreman"
+gem 'pg_search'
 
 
 # Gems used only for assets and not required
@@ -40,7 +41,6 @@ end
 group :test do 
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
-  gem 'poltergeist'
 end
 
 group :assets do

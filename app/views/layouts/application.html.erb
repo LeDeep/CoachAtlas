@@ -21,7 +21,7 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="/"><img src="app/assets/images/160x160_sphereman_name.jpg"></a>
+          <a href="/"><img src="images/coachatlas_logo.jpg" class="img-rounded" class=""></a>
           
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
@@ -29,21 +29,21 @@
             <span class="icon-bar"></span>
           </button>
           
-          <%= link_to "CoachAtlas", root_path, class: "brand" %>
+          
           <div class="nav-collapse collapse" id="main-menu">
             <ul class="nav pull-left" id="main-menu-left">
               <ul class="nav">
                 <li><%= link_to "Coach Directory", profiles_path %></li>
                 <li><%= link_to "Coaching Jobs", jobs_path %></li>
-                <li><%= link_to "How It Works", howitworks_page_path %></li>
-                <li><%= link_to "About Us", aboutus_page_path %></li>
+                <li><%= link_to "How It Works", howitworks_path %></li>
+                <li><%= link_to "About Us", about_path %></li>
               </ul>
             </ul>
               <ul class="nav pull-right" id="main-menu-right">
                 <ul class="nav">
                   <% if current_user %>
                       Signed in as <strong><%= current_user.name %></strong>!
-                      <%= link_to "Sign out", signout_path, id: "sign_out", class: "btn" %>
+                      <%= link_to "Sign out", signout_path, id: "sign_out", class: "btn btn-mini" %>
                   <% else %>
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign In<strong class="caret"></strong></a>
@@ -57,6 +57,7 @@
                             <%= label_tag :password %> 
                             <%= password_field_tag :password %>
                           </div>
+                          <p><%= link_to "forgotten password?", new_password_reset_path %></p>
                           <div class="actions"><%= submit_tag "Login", class: "btn btn-primary" %></div>
                           <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class: "icon_facebook" %>
                             <a class="facebook">
@@ -82,13 +83,14 @@
         </div>
       <% end %>
 
-      
+<%= flash[:alert] %>
+
         <%= yield %>
        
     </div>
     <div id="footer">
       <div class="container">
-        <p class="social links">Follow us on <a href="https://twitter.com/CoachAtlas_com">Twitter</a> and <a href="http://www.facebook.com/pages/CoachAtlascom/398372406847393">Facebook</a>.</p>
+        <p class="social links">Follow us on <a href="https://twitter.com/CoachAtlas_com" target="_blank">Twitter</a> and <a href="http://www.facebook.com/pages/CoachAtlascom/398372406847393" target="_blank">Facebook</a>.</p>
       </div>
     </div>
   </body>
