@@ -42,7 +42,7 @@
               <ul class="nav pull-right" id="main-menu-right">
                 <ul class="nav">
                   <% if current_user %>
-                      Signed in as <strong><%= current_user.name %></strong>!
+                      Welcome <strong><%= current_user.name %></strong>!
                       <%= link_to "Sign out", signout_path, id: "sign_out", class: "btn btn-mini" %>
                   <% else %>
                     <li class="dropdown">
@@ -88,10 +88,12 @@
         <%= yield %>
        
     </div>
+
     <div id="footer">
       <div class="container">
         <p class="social links">Follow us on <a href="https://twitter.com/CoachAtlas_com" target="_blank">Twitter</a> and <a href="http://www.facebook.com/pages/CoachAtlascom/398372406847393" target="_blank">Facebook</a>.</p>
       </div>
     </div>
+
   </body>
 </html>

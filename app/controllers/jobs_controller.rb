@@ -1,5 +1,8 @@
 class JobsController < ApplicationController
 
+  load_and_authorize_resource
+
+
   def new
     @job = Job.new
   end

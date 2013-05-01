@@ -20,6 +20,7 @@ Coachatlas::Application.routes.draw do
   resources :contact_details
   resources :identities
   resources :password_resets
+  resources :abilities
 
   resources :users do 
     resources :profiles, :jobs, :contact_details

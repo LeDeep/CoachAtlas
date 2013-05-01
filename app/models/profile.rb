@@ -1,6 +1,7 @@
 class Profile < ActiveRecord::Base
 
   validates :gender, :sport, :working_zip_code, :bio, :user_id, :presence => true
+  # validates_format_of :email, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
   attr_accessible :gender, :sport, :working_zip_code, :bio, :picture, :user_id
   validates_attachment_content_type :picture, :content_type => ["image/jpg", "image/png" ]
   validates_attachment_size :picture, :less_than => 3.megabytes

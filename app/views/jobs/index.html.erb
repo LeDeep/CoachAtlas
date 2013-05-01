@@ -32,19 +32,23 @@
         <td><%= job.user_id %></td>
         <td><%=l job.created_at %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          <% if can? :update, job %>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_job_path(job), :class => 'btn btn-mini' %>
+          <% end %>
+          <% if can? :destroy, job %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       job_path(job),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
+          <% end %>            
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<%= link_to t("Post a Job", :default => t("helpers.links.new")),
             new_job_path,
             :class => 'btn btn-primary' %>

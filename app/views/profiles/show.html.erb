@@ -8,6 +8,8 @@
   <dd><%= @profile.sport %></dd>
   <dt><strong><%= model_class.human_attribute_name(:gender) %>:</strong></dt>
   <dd><%= @profile.gender %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:picture) %>:</strong></dt>
+  <dd><%= image_tag @profile.picture.url %></dd>
   <dt><strong><%= model_class.human_attribute_name(:bio) %>:</strong></dt>
   <dd><%= @profile.bio %></dd>
   <dt><strong><%= model_class.human_attribute_name(:working_zip_code) %>:</strong></dt>

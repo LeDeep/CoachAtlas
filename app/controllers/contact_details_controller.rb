@@ -1,5 +1,8 @@
 class ContactDetailsController < ApplicationController
 
+  load_and_authorize_resource
+
+
  def new
     @contact_detail = ContactDetail.new
   end

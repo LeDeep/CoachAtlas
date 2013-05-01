@@ -1,4 +1,4 @@
-<%= form_for @profile, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @profile, :html => { :multipart => true } do |f| %>
   <div class="control-group">
     <%= f.label :sport, 'Enter the sport you coach', :class => 'control-label' %>
     <div class="controls">
@@ -18,18 +18,21 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :working_zip_code, 'Please enter the zip code you want to work in' :class => 'control-label' %>
+    <%= f.label :working_zip_code, 'Please enter the zip code you want to work in', :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :working_zip_code, :class => 'text_field' %>
-    <!-- </div>
-    <%= f.label :photo, "Attach a photo" :class => 'control-label' %>
-    <div class="controls">
-      <%= form.file_field :photo %>
-    </div> -->
+    </div>
   </div>
   <div class="control-group">
+    <%= f.label :picture, 'upload a picture of yourself', :class => 'control-label' %>
     <div class="controls">
-      <%= f.hidden_field :user_id, :user_id => user.id, :class => 'text_field' %>
+      <%= f.file_field :picture %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.hidden_field :user_id, :user_id => current_user.id, :class => 'text_field' %>
     </div>
   </div>
 
